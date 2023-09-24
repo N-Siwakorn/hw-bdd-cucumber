@@ -9,6 +9,11 @@ gem 'uglifier', '>= 2.7.1'
 
 gem 'jquery-rails'
 
+gem 'themoviedb'
+gem 'omniauth-google-oauth2'
+gem "devise"
+gem "omniauth-rails_csrf_protection"
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

@@ -28,4 +28,7 @@ Rottenpotatoes::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  GOOGLE_KEY = Rails.application.secrets.google1
+  GOOGLE_SECRET = Rails.application.secrets.google2
 end

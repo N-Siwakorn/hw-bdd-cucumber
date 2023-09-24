@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :force_index_redirect, only: [:index]
+  before_action :check_authen
 
   def show
     id = params[:id] # retrieve movie ID from URI route
@@ -51,6 +52,12 @@ class MoviesController < ApplicationController
   end
 
   private
+
+  def check_authen
+    if not user_signed_in?
+      redirect_to(root_path)
+    end
+  end
 
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
