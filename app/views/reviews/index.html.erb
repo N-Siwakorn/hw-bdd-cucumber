@@ -1,0 +1,32 @@
+<!--  This file is app/views/movies/index.html.erb -->
+<%= link_to "Profile", user_session_path, class: "#{'font-weight-bold' if current_page?(root_path)}" %> |
+<h2>All Reviews</h2>
+
+
+<table class="table table-striped col-md-12" id="reviews">
+<thead>
+    <tr>
+      <th>Username</th>
+      <th>Potatoes</th>
+      <th>Comments</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td>
+          <%= review.user.name %>
+        </td>
+        <td>
+          <%= review.potatoes %>
+        </td>
+        <td>
+          <%= review.comment %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add new review', new_movie_review_path, class: 'btn btn-primary' %>
+<%= link_to 'Return', movie_path(@id), class: 'btn btn-primary' %>

@@ -3,10 +3,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       handle_auth "Google"
     end
   
-    def github
-      handle_auth "Github"
-    end
-  
     def handle_auth(kind)
       @user = User.from_omniauth(request.env['omniauth.auth'])
       if @user.persisted?

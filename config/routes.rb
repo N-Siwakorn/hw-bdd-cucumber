@@ -1,5 +1,7 @@
 Rottenpotatoes::Application.routes.draw do
-  resources :movies
+  resources :movies do
+    resources :reviews
+    end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   
   # map '/' to be a redirect to '/movies'
