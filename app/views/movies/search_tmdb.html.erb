@@ -35,7 +35,7 @@
         </td>
         <td>
           <%# <%= "Add #{movie.original_title} to Categlory "%>
-          <%= link_to "Add #{movie.original_title} to Category", movies_path(movie: { title: movie.original_title, rating: rate, release_date: movie.release_date }), method: :post %>  
+          <%= link_to "Add #{movie.original_title} to Category", movies_path(movie: { title: movie.original_title, rating: rate, release_date: movie.release_date, description: movie.overview }), method: :post %>  
         </td>
       </tr>
        

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :check_authen
     def create
         # movie_id because of nested route
         @movie = Movie.find(params[:movie_id])

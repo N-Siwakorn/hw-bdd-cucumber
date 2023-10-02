@@ -52,24 +52,19 @@ class MoviesController < ApplicationController
     # @search.query(params["Search Terms"])
     @search = Tmdb::Movie.find(params["Search Terms"])
     # data = @search.fetch
-    # if @search == []
-    #   flash[:warning] = "'#{params["Search Terms"]}' was not found in TMDb."
+    if @search == []
+      flash[:warning] = "'#{params["Search Terms"]}' was not found in TMDb."
+      redirect_to movies_path
     # else
     #   name = @search[0].original_title
     #   date = @search[0].release_date
     #   rate = @search[0].adult
     #   flash[:notice] = "'#{name}' '#{date}'   '#{rate}'"
-    # end
-    # redirect_to movies_path
+    end
+    
   end
 
   private
-
-  def check_authen
-    if not user_signed_in?
-      redirect_to(root_path)
-    end
-  end
 
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
