@@ -15,6 +15,7 @@ gem 'omniauth-google-oauth2'
 gem "devise"
 gem "omniauth-rails_csrf_protection"
 
+gem 'reek'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
