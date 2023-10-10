@@ -1,27 +1,27 @@
 class ReviewsController < ApplicationController
     before_action :check_authen
     def create
-        @movie = Movie.find(params[:movie_id])
-        @user = current_user
-        
-        @review = Review.new
-        @review.comment = params[:comment]["{:class=>\"form-control\"}"]
-        @review.potatoes = params[:potatoes]
-        @review.movie = @movie
-        @review.user = @user
-
-        @review.save
+        Review.create!(review_params)
         flash[:notice] = 'Review successfully created.'
-        redirect_to(movie_reviews_path(@movie))
+        redirect_to(movie_reviews_path(params[:movie_id]))
     end
         
     def new
-        @movie = Movie.find(params[:movie_id])   
+        @movie = Movie.find(params[:movie_id]) 
     end
     
     def index
-        @id = params[:movie_id] 
-        @reviews = Review.where(movie_id: @id)
+        @reviews = Review.where(movie_id: params[:movie_id] )
     end
+
+    private
+    def review_params
+        {
+        "comment" => params[:comment],
+        "potatoes" => params[:potatoes],
+        "movie" => Movie.find(params[:movie_id]),
+        "user" => current_user
+        }
+      end
   end
 

@@ -1,8 +1,8 @@
 <h1> New Review for <em><%= @movie.title %></em> </h1>
 
 <%= form_tag movie_reviews_path(@movie.id), class: 'form' do %>
-    <%= label :comment,'Comment', class:'col-form-label' %>
-    <%= text_field :comment, class:'form-control' %>
+    <%= label :comment,'Comment', class: 'col-form-label' %>
+    <%= text_field_tag 'comment', nil, class: 'form-control' %>
     <%= label :potatoes,'How many potatoes', class: 'col-form-label' %>
     <%= select_tag :potatoes, options_for_select(1..5)%>
     <br/>

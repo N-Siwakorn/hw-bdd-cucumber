@@ -29,4 +29,4 @@
   </tbody>
 </table>
 <%= link_to 'Add new review', new_movie_review_path, class: 'btn btn-primary' %>
-<%= link_to 'Return', movie_path(@id), class: 'btn btn-primary' %>
+<%= link_to 'Return', movie_path(params[:movie_id]), class: 'btn btn-primary' %>
